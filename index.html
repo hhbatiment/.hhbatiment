@@ -104,18 +104,97 @@
       <h3 data-lang="fr">Galerie des travaux</h3>
       <h3 class="hidden" data-lang="it">Galleria dei lavori</h3>
       <div class="gallery">
-        <img src="images/travail 1.jpg" alt="Travail 1" />
-        <img src="images/travail 2.jpg" alt="Travail 2" />
-        <img src="images/travail 3.jpg" alt="Travail 3" />
-        <img src="images/travail 4.jpg" alt="Travail 4" />
-        <img src="images/travail 5.jpg" alt="Travail 5" />
-        <img src="images/travail 6.jpg" alt="Travail 6" /> 
-        <img src="images/travail 7.jpg" alt="Travail 7" />
-        <img src="images/travail 8.jpg" alt="Travail 8" />
-        <img src="images/travail 9.jpg" alt="Travail 9" />
-        <img src="images/travail 10.jpg" alt="Travail 10" />
+        <img src="images/travail 1.jpg" alt="Travail 1" class="zoomable" />
+        <img src="images/travail 2.jpg" alt="Travail 2" class="zoomable" />
+        <img src="images/travail 3.jpg" alt="Travail 3" class="zoomable" />
+        <img src="images/travail 4.jpg" alt="Travail 4" class="zoomable" />
+        <img src="images/travail 5.jpg" alt="Travail 5" class="zoomable"  />
+        <img src="images/travail 6.jpg" alt="Travail 6" class="zoomable" /> 
+        <img src="images/travail 7.jpg" alt="Travail 7" class="zoomable" />
+        <img src="images/travail 8.jpg" alt="Travail 8" class="zoomable"  />
+        <img src="images/travail 9.jpg" alt="Travail 9" class="zoomable" />
+        <img src="images/travail 10.jpg" alt="Travail 10" class="zoomable"  />
       </div>
       
+      <div id="lightbox" class="hidden">
+  <span class="close">&times;</span>
+  <img id="lightbox-img" src="" alt="Zoom Image" />
+</div>
+      .gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 12px;
+  margin-top: 14px;
+}
+
+.gallery img {
+  width: 100%;
+  border-radius: 14px;
+  box-shadow: var(--shadow);
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.gallery img:hover {
+  transform: scale(1.03);
+}
+
+/* Lightbox */
+#lightbox {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.8);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+#lightbox img {
+  max-width: 90%;
+  max-height: 90%;
+  border-radius: 12px;
+}
+
+#lightbox.hidden {
+  display: none;
+}
+
+#lightbox .close {
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  font-size: 40px;
+  color: white;
+  cursor: pointer;
+}
+<script>
+  const zoomImages = document.querySelectorAll(".zoomable");
+  const lightbox = document.getElementById("lightbox");
+  const lightboxImg = document.getElementById("lightbox-img");
+  const closeBtn = document.querySelector("#lightbox .close");
+
+  zoomImages.forEach(img => {
+    img.addEventListener("click", () => {
+      lightboxImg.src = img.src;
+      lightbox.classList.remove("hidden");
+    });
+  });
+
+  closeBtn.addEventListener("click", () => {
+    lightbox.classList.add("hidden");
+  });
+
+  lightbox.addEventListener("click", (e) => {
+    if (e.target === lightbox) {
+      lightbox.classList.add("hidden");
+    }
+  });
+</script>
+
     </section>
 
     <footer class="container" style="padding-left:0;padding-right:0">
@@ -152,6 +231,7 @@
   </script>
 </body>
 </html>
+
 
 
 
