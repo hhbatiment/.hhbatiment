@@ -45,6 +45,58 @@
     .gallery img{width:100%;border-radius:14px;box-shadow:var(--shadow);transition:transform .2s ease}
     .gallery img:hover{transform:scale(1.03)}
   </style>
+  .gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 12px;
+  margin-top: 14px;
+}
+
+.gallery img {
+  width: 100%;
+  border-radius: 14px;
+  box-shadow: var(--shadow);
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.gallery img:hover {
+  transform: scale(1.03);
+}
+
+/* Lightbox */
+#lightbox {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.8);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+#lightbox img {
+  max-width: 90%;
+  max-height: 90%;
+  border-radius: 12px;
+}
+
+#lightbox.hidden {
+  display: none;
+}
+
+#lightbox .close {
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  font-size: 40px;
+  color: white;
+  cursor: pointer;
+}
+
 </head>
 <body>
   <div class="container">
@@ -120,57 +172,7 @@
   <span class="close">&times;</span>
   <img id="lightbox-img" src="" alt="Zoom Image" />
 </div>
-      .gallery {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 12px;
-  margin-top: 14px;
-}
-
-.gallery img {
-  width: 100%;
-  border-radius: 14px;
-  box-shadow: var(--shadow);
-  cursor: pointer;
-  transition: transform 0.2s ease;
-}
-
-.gallery img:hover {
-  transform: scale(1.03);
-}
-
-/* Lightbox */
-#lightbox {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.8);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  z-index: 1000;
-}
-
-#lightbox img {
-  max-width: 90%;
-  max-height: 90%;
-  border-radius: 12px;
-}
-
-#lightbox.hidden {
-  display: none;
-}
-
-#lightbox .close {
-  position: absolute;
-  top: 20px;
-  right: 30px;
-  font-size: 40px;
-  color: white;
-  cursor: pointer;
-}
+     
 <script>
   const zoomImages = document.querySelectorAll(".zoomable");
   const lightbox = document.getElementById("lightbox");
@@ -231,6 +233,7 @@
   </script>
 </body>
 </html>
+
 
 
 
