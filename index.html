@@ -2,14 +2,15 @@
 <html lang="fr">
 <head>
 <meta charset="UTF-8">
-<meta name="google-site-verification" content="rYfl3MkCSrkzqAS6eWqhlM5cf9G0iqt27nz2Tfm0_qk" />  
-<title>Hhbatiment-Entreprise de Construction</title>
- <meta name="description" content="Hhbatiment  Entreprise de construction en France et Italie. Rénovation, construction, finitions. Contactez-nous."> 
-</head>
+<meta name="google-site-verification" content="rYfl3MkCSrkzqAS6eWqhlM5cf9G0iqt27nz2Tfm0_qk" />
+<title>HH BÂTIMENT - Entreprise de Construction</title>
+<meta name="description" content="Entreprise de construction en France et Italie. Rénovation, construction, finitions.">
+
 <style>
+
 body {
-  font-family: Arial, sans-serif;
   margin: 0;
+  font-family: Arial;
   background: url('images/logo.jpg') no-repeat center center fixed;
   background-size: cover;
   color: white;
@@ -26,29 +27,17 @@ header img {
   width: 100px;
 }
 
-/* BUTTONS FIXED */
-.whatsapp-btn {
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-  background: green;
-  color: white;
-  padding: 15px;
-  border-radius: 50%;
-  text-decoration: none;
-  font-size: 20px;
-}
+h1 { margin: 5px; }
 
-.call-btn {
-  position: fixed;
-  bottom: 20px;
-  left: 20px;
-  background: orange;
-  color: white;
-  padding: 15px;
-  border-radius: 50%;
+/* BUTTON */
+.button {
+  background: gold;
+  color: black;
+  padding: 10px 20px;
   text-decoration: none;
-  font-size: 20px;
+  font-weight: bold;
+  border-radius: 5px;
+}
 
 /* SLIDER */
 .slider {
@@ -66,9 +55,13 @@ header img {
 
 @keyframes slide {
   0% {margin-left: 0;}
+  20% {margin-left: 0;}
   25% {margin-left: -100%;}
+  45% {margin-left: -100%;}
   50% {margin-left: -200%;}
+  70% {margin-left: -200%;}
   75% {margin-left: -300%;}
+  95% {margin-left: -300%;}
   100% {margin-left: -400%;}
 }
 
@@ -79,16 +72,12 @@ header img {
   padding: 20px;
   border-radius: 10px;
   text-align: center;
-  opacity: 0;
-  transform: translateY(30px);
-  animation: fadeIn 1s forwards;
+  animation: fadeIn 1s;
 }
 
 @keyframes fadeIn {
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+  from {opacity:0; transform: translateY(30px);}
+  to {opacity:1; transform: translateY(0);}
 }
 
 /* GALLERY */
@@ -101,34 +90,84 @@ header img {
 .gallery img {
   width: 100%;
   border-radius: 8px;
+  cursor: pointer;
+  transition: 0.3s;
 }
 
-/* BUTTON */
-.button {
-  background: yellow;
-  color: black;
-  padding: 10px 20px;
+.gallery img:hover {
+  transform: scale(1.05);
+}
+
+/* MODAL */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 999;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.9);
+}
+
+.modal img {
+  margin: auto;
+  display: block;
+  max-width: 90%;
+  max-height: 80%;
+  margin-top: 5%;
+}
+
+.modal span {
+  position: absolute;
+  top: 20px;
+  right: 40px;
+  font-size: 40px;
+  cursor: pointer;
+}
+
+/* FLOAT BUTTONS */
+.whatsapp-btn, .call-btn {
+  position: fixed;
+  bottom: 20px;
+  padding: 15px;
+  border-radius: 50%;
+  color: white;
+  font-size: 20px;
   text-decoration: none;
-  font-weight: bold;
-  display: inline-block;
+}
+
+.whatsapp-btn { right: 20px; background: green; }
+.call-btn { left: 20px; background: orange; }
+
+/* INSTAGRAM QR */
+.insta-qr {
+  position: fixed;
+  top: 30px;
+  right: 30px;
+  width: 90px;
+  border-radius: 20px;
 }
 
 /* MOBILE */
 @media(max-width:600px){
   header img { width: 80px; }
 }
-</style>
 
+</style>
 </head>
 
 <body>
 
+<!-- QR INSTAGRAM -->
+<a href="https://instagram.com/hhbatiment" target="_blank">
+  <img src="images/QRCODE.jpg" class="insta-qr">
+</a>
+
 <header>
   <img src="images/logo.jpg">
-  <h1> h&h batiment</h1>
- 
-  <h1> Entreprise de Construction</h1>
-  <p>France & Italie</p>
+  <h1>HH BÂTIMENT</h1>
+  <h2>Entreprise de Construction</h2>
+  <p>Italie & France</p>
   <a class="button" href="https://wa.me/393881614637">WhatsApp</a>
 </header>
 
@@ -141,6 +180,7 @@ header img {
     <img src="images/work38.jpg">
     <img src="images/work15.jpg">
   </div>
+
 </div>
 
 <!-- SERVICES -->
@@ -151,7 +191,6 @@ header img {
 
 <!-- GALLERY -->
 <div class="section gallery">
- <img src="images/QRCODE.jpg">
   <img src="images/work1.jpg">
   <img src="images/work2.jpg">
   <img src="images/work3.jpg">
@@ -217,18 +256,40 @@ header img {
   <img src="images/work63.jpg">
  
 </div>
-
 <!-- CONTACT -->
 <div class="section">
-  <h2>Contact</h2> 
- <h2> Haroun</h2>
+  <h2>Contact</h2>
+<h2> Haroun</h2>
   <p>📞 0039 388 161 4637</p>
   <p>📧 batimenthh@gmail.com</p>
 </div>
 
-<!-- FLOATING BUTTONS -->
+<!-- MODAL -->
+<div id="myModal" class="modal">
+  <span onclick="closeModal()">&times;</span>
+  <img id="modalImg">
+</div>
+
+<!-- BUTTONS -->
 <a class="whatsapp-btn" href="https://wa.me/393881614637">💬</a>
 <a class="call-btn" href="tel:00393881614637">📞</a>
+
+<script>
+const images = document.querySelectorAll(".gallery img");
+const modal = document.getElementById("myModal");
+const modalImg = document.getElementById("modalImg");
+
+images.forEach(img => {
+  img.onclick = function(){
+    modal.style.display = "block";
+    modalImg.src = this.src;
+  }
+});
+
+function closeModal(){
+  modal.style.display = "none";
+}
+</script>
 
 </body>
 </html>
